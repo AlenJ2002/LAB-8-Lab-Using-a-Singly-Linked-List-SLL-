@@ -7,70 +7,69 @@ namespace SLLTests
     [TestFixture]
     public class LinkedListTests
     {
-        private LinkedList list;
+        private LinkedList list; // field
 
         [SetUp]
         public void Setup()
         {
-            list = new LinkedList();
-            // You can populate the list here if needed
+            list = new LinkedList(); // setup
         }
 
         [Test]
-        public void AddFirst_AddsNodeToBeginning()
+        public void AddFirst_AddsNodeToBeginning() // method
         {
             list.AddFirst("John Smith");
-            Assert.AreEqual("John Smith", list.Head.Value);
+            Assert.AreEqual("John Smith", list.Head.Value); // add first
             Assert.AreEqual(1, list.Count);
         }
 
         [Test]
-        public void AddLast_AddsNodeToEnd()
+        public void AddLast_AddsNodeToEnd() // method
         {
             list.AddLast("Jane Doe");
-            Assert.AreEqual("Jane Doe", list.GetValue(0));
-            Assert.AreEqual(1, list.Count);
+            Assert.AreEqual("Jane Doe", list.GetValue(0)); // add last
+            Assert.AreEqual(1, list.Count); // add last
         }
 
         [Test]
-        public void RemoveFirst_RemovesHeadNode()
+        public void RemoveFirst_RemovesHeadNode() // method
         {
             list.AddFirst("Joe Blow");
             list.RemoveFirst();
             Assert.IsNull(list.Head);
-            Assert.AreEqual(0, list.Count);
+            Assert.AreEqual(0, list.Count); // remove first
         }
 
         [Test]
-        public void RemoveLast_RemovesLastNode()
+        public void RemoveLast_RemovesLastNode() // method
         {
             list.AddFirst("Joe Blow");
             list.RemoveLast();
             Assert.IsNull(list.Head);
-            Assert.AreEqual(0, list.Count);
+            Assert.AreEqual(0, list.Count); // remove last
         }
 
         [Test]
-        public void GetValue_RetrievesCorrectValueByIndex()
+        public void GetValue_RetrievesCorrectValueByIndex() // method
         {
             list.AddLast("Joe Blow");
             list.AddLast("John Smith");
-            Assert.AreEqual("John Smith", list.GetValue(1));
+            Assert.AreEqual("John Smith", list.GetValue(1)); // get value
         }
 
         [Test]
-        public void Count_ReturnsCorrectSize()
+        public void Count_ReturnsCorrectSize() // method
         {
             list.AddLast("Joe Blow");
             list.AddLast("John Smith");
-            Assert.AreEqual(2, list.Count);
+            Assert.AreEqual(2, list.Count); // count
         }
 
         [Test]
-        public void GetValue_WithInvalidIndex_ThrowsException()
+        public void GetValue_WithInvalidIndex_ThrowsException() // method
         {
             list.AddLast("Joe Blow");
-            Assert.Throws<ArgumentOutOfRangeException>(() => list.GetValue(2));
+            Assert.Throws<ArgumentOutOfRangeException>(() => list.GetValue(2)); // out of range
         }
     }
 }
