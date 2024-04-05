@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,48 +6,48 @@ using System.Threading.Tasks;
 
 namespace SLL
 {
-    public class Node
+    public class Node // class
     {
-        public string Value { get; set; }
-        public Node Next { get; set; }
+        public string Value { get; set; } // property
+        public Node Next { get; set; } // property
 
-        public Node(string value)
+        public Node(string value) // constructor
         {
             Value = value;
             Next = null;
         }
     }
 
-    public class LinkedList
+    public class LinkedList // class
     {
-        public Node Head { get; private set; }
-        public int Count { get; private set; }
+        public Node Head { get; private set; } // property
+        public int Count { get; private set; } // property
 
-        public LinkedList()
+        public LinkedList() // constructor
         {
             Head = null;
             Count = 0;
         }
 
-        public void AddFirst(string value)
+        public void AddFirst(string value) // method
         {
-            var newNode = new Node(value);
+            var newNode = new Node(value); // create a new node
             newNode.Next = Head;
             Head = newNode;
             Count++;
         }
 
-        public void AddLast(string value)
+        public void AddLast(string value) // method
         {
-            var newNode = new Node(value);
+            var newNode = new Node(value); // create a new node
             if (Head == null)
             {
                 Head = newNode;
             }
             else
-            {
-                Node current = Head;
-                while (current.Next != null)
+            { 
+                Node current = Head; // start at the beginning
+                while (current.Next != null) // traverse the list
                 {
                     current = current.Next;
                 }
@@ -56,7 +56,7 @@ namespace SLL
             Count++;
         }
 
-        public void RemoveFirst()
+        public void RemoveFirst() // method
         {
             if (Head != null)
             {
@@ -65,7 +65,7 @@ namespace SLL
             }
         }
 
-        public void RemoveLast()
+        public void RemoveLast() // method
         {
             if (Head == null) return;
             if (Head.Next == null)
@@ -84,12 +84,12 @@ namespace SLL
             Count--;
         }
 
-        public string GetValue(int index)
+        public string GetValue(int index) // method
         {
-            if (index < 0 || index >= Count) throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
+            if (index < 0 || index >= Count) throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range."); // check for invalid index
 
             Node current = Head;
-            for (int i = 0; i < index; i++)
+            for (int i = 0; i < index; i++)    // traverse the list
             {
                 current = current.Next;
             }
